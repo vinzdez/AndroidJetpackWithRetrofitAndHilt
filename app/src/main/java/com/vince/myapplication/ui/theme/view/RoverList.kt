@@ -1,6 +1,7 @@
 package com.vince.myapplication.ui.theme.view
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,21 +23,32 @@ import com.vince.myapplication.R
 import com.vince.myapplication.domain.model.roverUiModelList
 
 @Composable
-fun RoverList(){
+fun RoverList(
+    onClick: (roverName: String) -> Unit
+){
     Surface (color = MaterialTheme.colorScheme.background , modifier = Modifier.fillMaxSize()){
         LazyColumn {
             items(count = roverUiModelList.size, itemContent = {
                 var rover = roverUiModelList[it]
-                Rover(rover.name , rover.img , rover.landingDate , rover.distance)
+                Rover(rover.name,
+                    rover.img,
+                    rover.landingDate,
+                    rover.distance,
+                    onClick
+                    )
             })
         }
     }
 }
 
 @Composable
-fun Rover(name: String , id : Int , landingDate : String
-          , distance : String) {
-    Card(Modifier.padding(16.dp)){
+fun Rover(name: String,
+          id : Int,
+          landingDate : String,
+          distance : String,
+          onClick: (roverName: String) -> Unit) {
+    Card(Modifier.padding(16.dp)
+        .clickable { onClick(name) }){
         Column(Modifier.padding(16.dp)) {
             Text(modifier = Modifier.fillMaxWidth(),
                 text = name ,
@@ -55,5 +67,5 @@ fun Rover(name: String , id : Int , landingDate : String
 @Preview
 @Composable
 fun RoverPreview() {
-    Rover("Perseverance" , R.drawable.perseverance , "18 Feb 2-21" , " 12.56 km" )
+    Rover("Perseverance" , R.drawable.perseverance , "18 Feb 2-21" , " 12.56 km" ){}
 }
