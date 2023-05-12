@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface MarsRoverManifestService {
 
-    @GET("mars-photos/api/v1/manifest/{rover-name}?api_key=Z6YEmazqfQ7Xdsn7qVHNgSgvClchrb93rBtpm9RM")
+    @GET("mars-photos/api/v1/manifests/{rover_name}?api_key=Z6YEmazqfQ7Xdsn7qVHNgSgvClchrb93rBtpm9RM")
     suspend fun getMarsRoverManifest(@Path("rover_name") roverName: String) : RoverManifestRemoteModel
     
     companion object{
