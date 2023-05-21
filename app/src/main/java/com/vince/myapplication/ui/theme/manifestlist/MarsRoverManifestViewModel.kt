@@ -1,4 +1,4 @@
-package com.vince.myapplication.ui.theme.manidestlist
+package com.vince.myapplication.ui.theme.manifestlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

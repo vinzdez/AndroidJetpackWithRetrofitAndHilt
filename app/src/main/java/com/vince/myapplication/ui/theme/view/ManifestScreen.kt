@@ -5,7 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.vince.myapplication.domain.model.RoverManifestUiState
-import com.vince.myapplication.ui.theme.manidestlist.MarsRoverManifestViewModel
+import com.vince.myapplication.ui.theme.manifestlist.MarsRoverManifestViewModel
 
 @Composable
 fun ManifestScreen(
